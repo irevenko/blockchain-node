@@ -1,6 +1,5 @@
 import Block from './block';
 import Transaction from './transaction';
-import debug from 'debug';
 
 class BlockChain {
   chain: Array<Block>;
@@ -32,7 +31,7 @@ class BlockChain {
     const block = new Block(this.blockHeight, this.awaitingTransactions, Date.now().toString(), this.getLastBlockHash());
     block.mineBlock(this.difficulty);
 
-    debug('Success mining');
+    console.log('Successful mining');
     this.chain.push(block);
 
     this.awaitingTransactions = [];
@@ -56,7 +55,6 @@ class BlockChain {
     // }
 
     this.awaitingTransactions.push(transaction);
-    debug('transaction added: %s', transaction);
   }
 
   getAddressBalance(address) { 
@@ -72,7 +70,6 @@ class BlockChain {
         }
       }
     }
-    debug('getBalanceOfAdrees: %s', balance);
     return balance;
   }
 

@@ -1,5 +1,4 @@
 import { SHA256 } from 'crypto-js';
-import Transaction from './transaction';
 
 class Block {
   height: number;
